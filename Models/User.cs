@@ -2,9 +2,9 @@ namespace InstagramCloneAPI.Models
 {
     public class User
     {
-        public string Id { get; init; } = string.Empty;
-        public string Username { get; init; } = string.Empty;
-        public string Email { get; init; } = string.Empty;
-        public string PasswordHash { get; init; } = string.Empty;
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
     }
 }
