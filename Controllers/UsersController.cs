@@ -50,10 +50,10 @@ namespace InstagramCloneAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<UserDto>> CreateUser(CreateUserDto createUserDto)
         {
-            // Check if the email already exists
+            // Check for unique fields
             var existingUser = await context.Users
-                .FirstOrDefaultAsync(u => u.Email == createUserDto.Email);
-    
+                .FirstOrDefaultAsync(u => u.Email == createUserDto.Email || u.Username == createUserDto.Username);
+
             if (existingUser != null)
             {
                 return Conflict(new { message = "Email already exists" });
