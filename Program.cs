@@ -49,6 +49,7 @@ builder.Services
     {
         // TODO: User ServiceUrls config
         options.Authority = "http://localhost:8080/realms/myrealm";
+        // TODO: Need to set up proper aud
         options.Audience = "account";
         options.RequireHttpsMetadata = false;
         options.UseSecurityTokenValidators = true;
@@ -59,6 +60,7 @@ builder.Services
             ValidateLifetime = true,
             // TODO: User ServiceUrls config
             ValidIssuer = "http://localhost:8080/realms/myrealm",
+            // TODO: Need to set up proper aud
             ValidAudience = "account"
         };
         options.Events = new JwtBearerEvents
@@ -112,7 +114,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 
-// app.UseAuthorization();
+app.UseAuthorization();
 
 app.MapControllers();
 

@@ -5,7 +5,7 @@ namespace InstagramCloneAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    // [Authorize]
+    [Authorize]
     public class TestController(ILogger<TestController> logger) : ControllerBase
     {
 
