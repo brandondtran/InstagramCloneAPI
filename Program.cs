@@ -48,7 +48,7 @@ builder.Services
     .AddJwtBearer(options =>
     {
         // TODO: User ServiceUrls config
-        options.Authority = "http://localhost:9999/realms/myrealm";
+        options.Authority = "http://localhost:9999/realms/general";
         // TODO: Need to set up proper aud
         options.Audience = "account";
         options.RequireHttpsMetadata = false;
@@ -59,7 +59,7 @@ builder.Services
             ValidateAudience = true,
             ValidateLifetime = true,
             // TODO: User ServiceUrls config
-            ValidIssuer = "http://localhost:9999/realms/myrealm",
+            ValidIssuer = "http://localhost:9999/realms/general",
             // TODO: Need to set up proper aud
             ValidAudience = "account"
         };

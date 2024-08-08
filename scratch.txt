@@ -1,0 +1,8 @@
+﻿ssh -i ~/keys/igc-linux-vm_key.pem btran@20.151.77.149
+
+20.151.77.149
+
+WIP:
+- BE API service endpoint returns 401 after login
+- sync keycloak with user service
+- init keycloak with realm, clients, roles, users, groups, etc

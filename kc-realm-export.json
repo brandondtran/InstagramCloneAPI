@@ -1,0 +1,27 @@
+﻿{
+  "realm": "general",
+  "enabled": true,
+  "clients": [],
+  "users": [
+    {
+      "username": "admin",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin"
+        }
+      ]
+    },
+    {
+      "username": "btran",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "btran"
+        }
+      ]
+    }
+  ]
+}
