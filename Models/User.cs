@@ -1,21 +1,24 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace InstagramCloneAPI.Models
 {
     public class User
     {
-        public string Id { get; set; } = Guid.NewGuid().ToString();
-        public string PasswordHash { get; set; } = string.Empty;
-        public string Username { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
+        [Column(TypeName = "varchar(36)")]
+        public string Id { get; set; }
+        public string PasswordHash { get; set; }
+        public string Username { get; set; }
+        public string Email { get; set; }
 
-        // public string PhoneNumber { get; set; } = string.Empty;
+        // public string PhoneNumber { get; set; }
         //
-        // public bool EmailVerified { get; set; } = false;
+        // public bool EmailVerified { get; set; }
         //
-        // public bool PhoneNumberVerified { get; set; } = false;
+        // public bool PhoneNumberVerified { get; set; }
         //
-        // public string FirstName { get; set; } = string.Empty;
+        // public string FirstName { get; set; }
         //
-        // public string LastName { get; set; } = string.Empty;
+        // public string LastName { get; set; }
         //
         // public DateTime DateOfBirth { get; set; }
         //

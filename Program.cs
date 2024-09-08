@@ -25,7 +25,8 @@ builder.Services.Configure<ServiceUrls>(builder.Configuration.GetSection("Servic
 var serviceUrls = builder.Configuration.GetSection("ServiceUrls").Get<ServiceUrls>();
 
 // Register HTTP client services for external APIs
-builder.Services.AddHttpClient("Keycloak", client =>
+builder.Services.AddHttpClient
+("Keycloak", client =>
 {
     if (serviceUrls != null)
     {
@@ -35,7 +36,8 @@ builder.Services.AddHttpClient("Keycloak", client =>
 
 // Add db context
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    // options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add auth
 builder.Services
