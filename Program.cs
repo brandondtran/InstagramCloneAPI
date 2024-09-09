@@ -40,47 +40,47 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add auth
-builder.Services
-    .AddAuthentication(options =>
-        {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        }
-    )
-    .AddJwtBearer(options =>
-    {
-        // TODO: User ServiceUrls config
-        options.Authority = "http://localhost:9999/realms/general";
-        // TODO: Need to set up proper aud
-        options.Audience = "account";
-        options.RequireHttpsMetadata = false;
-        options.UseSecurityTokenValidators = true;
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            // TODO: User ServiceUrls config
-            ValidIssuer = "http://localhost:9999/realms/general",
-            // TODO: Need to set up proper aud
-            ValidAudience = "account"
-        };
-        options.Events = new JwtBearerEvents
-        {
-            OnAuthenticationFailed = context =>
-            {
-                var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
-                logger.LogError($"Authentication failed. {context.Exception}");
-                return Task.CompletedTask;
-            },
-            OnTokenValidated = context =>
-            {
-                var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
-                logger.LogInformation("Token validated.");
-                return Task.CompletedTask;
-            }
-        };
-    });
+// builder.Services
+//     .AddAuthentication(options =>
+//         {
+//             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//         }
+//     )
+//     .AddJwtBearer(options =>
+//     {
+//         // TODO: User ServiceUrls config
+//         options.Authority = "http://localhost:9999/realms/general";
+//         // TODO: Need to set up proper aud
+//         options.Audience = "account";
+//         options.RequireHttpsMetadata = false;
+//         options.UseSecurityTokenValidators = true;
+//         options.TokenValidationParameters = new TokenValidationParameters
+//         {
+//             ValidateIssuer = true,
+//             ValidateAudience = true,
+//             ValidateLifetime = true,
+//             // TODO: User ServiceUrls config
+//             ValidIssuer = "http://localhost:9999/realms/general",
+//             // TODO: Need to set up proper aud
+//             ValidAudience = "account"
+//         };
+//         options.Events = new JwtBearerEvents
+//         {
+//             OnAuthenticationFailed = context =>
+//             {
+//                 var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
+//                 logger.LogError($"Authentication failed. {context.Exception}");
+//                 return Task.CompletedTask;
+//             },
+//             OnTokenValidated = context =>
+//             {
+//                 var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
+//                 logger.LogInformation("Token validated.");
+//                 return Task.CompletedTask;
+//             }
+//         };
+//     });
 
 
 // TODO: Temporary config to disable CORS
@@ -114,9 +114,9 @@ app.UseCors();
 
 app.UseRouting();
 
-app.UseAuthentication();
-
-app.UseAuthorization();
+// app.UseAuthentication();
+//
+// app.UseAuthorization();
 
 app.MapControllers();
 
