@@ -1,11 +1,11 @@
 meta {
-  name: /
+  name: helath
   type: http
-  seq: 1
+  seq: 2
 }
 
 get {
-  url: http://localhost:5258/api/test
+  url: {{frontdoor}}/health
   body: none
   auth: none
 }

@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "ig-api",
+  "name": "igc-api",
   "type": "collection",
   "ignore": [
     "node_modules",
